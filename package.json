@@ -3,6 +3,7 @@
   "private": true,
   "description": "Development dependencies for the ring-node repository. Library consumers install npm deps declared in each module's deps.cljs (currently: ws, for the adapter).",
   "devDependencies": {
+    "busboy": "^1.6.0",
     "shadow-cljs": "^3.4.12",
     "ws": "^8.21.3"
   }

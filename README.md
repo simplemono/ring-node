@@ -34,7 +34,8 @@ by [`ws`](https://github.com/websockets/ws).
 - **Node.js ≥ 20** (CI runs current LTS releases).
 - Modules that need npm packages declare them in `deps.cljs` (`:npm-deps`);
   shadow-cljs picks these up automatically. With vanilla `cljs.main`, run
-  `npm install ws` yourself for the adapter.
+  `npm install ws` yourself for the adapter (and `npm install busboy` for
+  ring-multipart).
 
 Because `^:async` is a compiler feature, these sources are **not** loadable
 in self-hosted ClojureScript (nbb/SCI).
@@ -66,6 +67,7 @@ Maven artifacts. Depend on the module you need with `:deps/root`:
 | `ring-websocket-protocols` | Websocket `Listener` / `PingListener` / `Socket` protocols      |
 | `ring-core`                | `ring.middleware.*`, `ring.util.*`, `ring.websocket`            |
 | `ring-node-adapter`        | `ring.adapter.node` — `node:http` adapter with websockets       |
+| `ring-multipart`           | `wrap-multipart-params` — file uploads, backed by busboy        |
 | `ring-devel`               | `wrap-stacktrace`, `wrap-lint`                                  |
 
 Namespaces keep their upstream `ring.*` names, so ports of JVM Ring
@@ -82,10 +84,12 @@ applications are mostly mechanical.
   return promises.
 - Websocket `Socket` send/ping/pong/close return promises (`AsyncSocket` is
   merged into `Socket`).
+- Multipart lives in its own `ring-multipart` module (wrapping busboy) so
+  ring-core stays free of npm dependencies. Its `:store` functions may return
+  promises; `:progress-fn` and the HTML5 `_charset_` field are not ported.
 - Dropped: `wrap-resource` and resource/url responses (no runtime classpath
   on Node.js), `wrap-reload` (shadow-cljs watch does this), servlet modules,
-  the encrypted cookie session store (for now), multipart (planned as a
-  separate `ring-multipart` module wrapping busboy).
+  the encrypted cookie session store (for now).
 
 ## Development
 
