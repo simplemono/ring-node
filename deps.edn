@@ -1,0 +1,18 @@
+{;; Development root for the ring-node monorepo. Consumers should depend on
+ ;; individual modules via git deps with :deps/root, e.g.:
+ ;;
+ ;;   io.github.example/ring-node
+ ;;   {:git/url "https://github.com/example/ring-node.git"
+ ;;    :git/tag "0.1.0" :git/sha "..." :deps/root "ring-core"}
+ :paths []
+ :deps  {ring-node/ring-core-protocols      {:local/root "ring-core-protocols"}
+         ring-node/ring-websocket-protocols {:local/root "ring-websocket-protocols"}
+         ring-node/ring-core                {:local/root "ring-core"}
+         ring-node/ring-node-adapter        {:local/root "ring-node-adapter"}
+         ring-node/ring-devel               {:local/root "ring-devel"}}
+ :aliases
+ {;; Dev/test toolchain; shadow-cljs.edn pulls this alias in via {:deps {:aliases [:shadow]}}.
+  :shadow {:extra-deps  {thheller/shadow-cljs {:mvn/version "3.4.12"}}
+           :extra-paths ["ring-core/test"
+                         "ring-node-adapter/test"
+                         "ring-devel/test"]}}}

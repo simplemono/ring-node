@@ -1,0 +1,4 @@
+{:paths ["src"]
+ :deps  {org.clojure/clojurescript             {:mvn/version "1.12.145"}
+         ring-node/ring-core-protocols      {:local/root "../ring-core-protocols"}
+         ring-node/ring-websocket-protocols {:local/root "../ring-websocket-protocols"}}}

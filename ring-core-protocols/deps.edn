@@ -1,0 +1,5 @@
+{:paths ["src"]
+ ;; Hard dependency on the first ClojureScript release with native async/await
+ ;; (^:async metadata + await). tools.deps resolves newest-wins, so consumers
+ ;; on older compilers are upgraded automatically.
+ :deps  {org.clojure/clojurescript {:mvn/version "1.12.145"}}}
