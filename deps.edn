@@ -1,8 +1,8 @@
 {;; Development root for the ring-node monorepo. Consumers should depend on
  ;; individual modules via git deps with :deps/root, e.g.:
  ;;
- ;;   io.github.example/ring-node
- ;;   {:git/url "https://github.com/example/ring-node.git"
+ ;;   io.github.simplemono/ring-node
+ ;;   {:git/url "https://github.com/simplemono/ring-node.git"
  ;;    :git/tag "0.1.0" :git/sha "..." :deps/root "ring-core"}
  :paths []
  :deps  {ring-node/ring-core-protocols      {:local/root "ring-core-protocols"}

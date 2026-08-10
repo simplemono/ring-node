@@ -46,13 +46,13 @@ Maven artifacts. Depend on the module you need with `:deps/root`:
 
 ```clojure
 {:deps
- {io.github.example/ring-node
-  {:git/url   "https://github.com/example/ring-node.git"
+ {io.github.simplemono/ring-node
+  {:git/url   "https://github.com/simplemono/ring-node.git"
    :git/tag   "0.1.0"
    :git/sha   "0000000"
    :deps/root "ring-core"}
-  io.github.example/ring-node-adapter
-  {:git/url   "https://github.com/example/ring-node.git"
+  io.github.simplemono/ring-node-adapter
+  {:git/url   "https://github.com/simplemono/ring-node.git"
    :git/tag   "0.1.0"
    :git/sha   "0000000"
    :deps/root "ring-node-adapter"}}}
